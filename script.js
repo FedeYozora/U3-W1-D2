@@ -15,6 +15,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var saldoSon = document.getElementById("sonAccountBalance");
 var saldoMum = document.getElementById("MumAccountBalance");
+var withdrawSonHistory = document.getElementById("withdrawSonHistory");
+var withdrawMumHistory = document.getElementById("withdrawMumHistory");
+var depositSonHistory = document.getElementById("depositSonHistory");
+var depositMumHistory = document.getElementById("depositMumHistory");
 var depositSon = document.getElementById("DepositoSon");
 var depositMum = document.getElementById("DepositoMum");
 var withdrawSon = document.getElementById("PrelievoSon");
@@ -68,6 +72,8 @@ function prelievoFiglio() {
     if (!isNaN(amountToWithdraw)) {
         sonAccount.withdraw(amountToWithdraw);
         saldoFiglio();
+        var withdrawHistory = "<li>".concat(amountToWithdraw, "</li>");
+        withdrawSonHistory.innerHTML += withdrawHistory;
     }
     else {
         alert("Inserisci un valore valido");
@@ -79,6 +85,8 @@ function prelievoMadre() {
         motherAccount.withdraw(amountToWithdraw);
         motherAccount.calculateInterest();
         saldoMadre();
+        var withdrawHistory = "<li>".concat(amountToWithdraw, "</li>");
+        withdrawMumHistory.innerHTML += withdrawHistory;
     }
     else {
         alert("Inserisci un valore valido");
@@ -89,6 +97,8 @@ function depositoFiglio() {
     if (!isNaN(amountToDeposit)) {
         sonAccount.deposit(amountToDeposit);
         saldoFiglio();
+        var depositHistory = "<li>".concat(amountToDeposit, "</li>");
+        depositSonHistory.innerHTML += depositHistory;
     }
     else {
         alert("Inserisci un valore valido");
@@ -100,6 +110,8 @@ function depositoMadre() {
         motherAccount.deposit(amountToDeposit);
         motherAccount.calculateInterest();
         saldoMadre();
+        var depositHistory = "<li>".concat(amountToDeposit, "</li>");
+        depositMumHistory.innerHTML += depositHistory;
     }
     else {
         alert("Inserisci un valore valido");

@@ -1,9 +1,19 @@
-let saldoSon = document.getElementById(
-  "sonAccountBalance"
-) as HTMLElement | null;
-let saldoMum = document.getElementById(
-  "MumAccountBalance"
-) as HTMLElement | null;
+let saldoSon = document.getElementById("sonAccountBalance") as HTMLInputElement;
+let saldoMum = document.getElementById("MumAccountBalance") as HTMLInputElement;
+
+let withdrawSonHistory = document.getElementById(
+  "withdrawSonHistory"
+) as HTMLElement;
+let withdrawMumHistory = document.getElementById(
+  "withdrawMumHistory"
+) as HTMLElement;
+let depositSonHistory = document.getElementById(
+  "depositSonHistory"
+) as HTMLElement;
+let depositMumHistory = document.getElementById(
+  "depositMumHistory"
+) as HTMLElement;
+
 let depositSon = document.getElementById("DepositoSon") as HTMLInputElement;
 let depositMum = document.getElementById("DepositoMum") as HTMLInputElement;
 let withdrawSon = document.getElementById("PrelievoSon") as HTMLInputElement;
@@ -61,6 +71,8 @@ function prelievoFiglio(): void {
   if (!isNaN(amountToWithdraw)) {
     sonAccount.withdraw(amountToWithdraw);
     saldoFiglio();
+    let withdrawHistory: any = `<li>${amountToWithdraw}</li>`;
+    withdrawSonHistory.innerHTML += withdrawHistory;
   } else {
     alert("Inserisci un valore valido");
   }
@@ -72,6 +84,8 @@ function prelievoMadre(): void {
     motherAccount.withdraw(amountToWithdraw);
     motherAccount.calculateInterest();
     saldoMadre();
+    let withdrawHistory: any = `<li>${amountToWithdraw}</li>`;
+    withdrawMumHistory.innerHTML += withdrawHistory;
   } else {
     alert("Inserisci un valore valido");
   }
@@ -82,6 +96,8 @@ function depositoFiglio(): void {
   if (!isNaN(amountToDeposit)) {
     sonAccount.deposit(amountToDeposit);
     saldoFiglio();
+    let depositHistory: any = `<li>${amountToDeposit}</li>`;
+    depositSonHistory.innerHTML += depositHistory;
   } else {
     alert("Inserisci un valore valido");
   }
@@ -93,6 +109,8 @@ function depositoMadre(): void {
     motherAccount.deposit(amountToDeposit);
     motherAccount.calculateInterest();
     saldoMadre();
+    let depositHistory: any = `<li>${amountToDeposit}</li>`;
+    depositMumHistory.innerHTML += depositHistory;
   } else {
     alert("Inserisci un valore valido");
   }
