@@ -65,25 +65,45 @@ function saldoMadre() {
 }
 function prelievoFiglio() {
     var amountToWithdraw = parseInt(withdrawSon.value);
-    sonAccount.withdraw(amountToWithdraw);
-    saldoFiglio();
+    if (!isNaN(amountToWithdraw)) {
+        sonAccount.withdraw(amountToWithdraw);
+        saldoFiglio();
+    }
+    else {
+        alert("Inserisci un valore valido");
+    }
 }
 function prelievoMadre() {
     var amountToWithdraw = parseInt(withdrawMum.value);
-    motherAccount.withdraw(amountToWithdraw);
-    motherAccount.calculateInterest();
-    saldoMadre();
+    if (!isNaN(amountToWithdraw)) {
+        motherAccount.withdraw(amountToWithdraw);
+        motherAccount.calculateInterest();
+        saldoMadre();
+    }
+    else {
+        alert("Inserisci un valore valido");
+    }
 }
 function depositoFiglio() {
     var amountToDeposit = parseInt(depositSon.value);
-    sonAccount.deposit(amountToDeposit);
-    saldoFiglio();
+    if (!isNaN(amountToDeposit)) {
+        sonAccount.deposit(amountToDeposit);
+        saldoFiglio();
+    }
+    else {
+        alert("Inserisci un valore valido");
+    }
 }
 function depositoMadre() {
     var amountToDeposit = parseInt(depositMum.value);
-    motherAccount.deposit(amountToDeposit);
-    motherAccount.calculateInterest();
-    saldoMadre();
+    if (!isNaN(amountToDeposit)) {
+        motherAccount.deposit(amountToDeposit);
+        motherAccount.calculateInterest();
+        saldoMadre();
+    }
+    else {
+        alert("Inserisci un valore valido");
+    }
 }
 saldoFiglio();
 saldoMadre();

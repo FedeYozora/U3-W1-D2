@@ -58,26 +58,44 @@ function saldoMadre(): void {
 
 function prelievoFiglio(): void {
   const amountToWithdraw = parseInt(withdrawSon.value);
-  sonAccount.withdraw(amountToWithdraw);
-  saldoFiglio();
+  if (!isNaN(amountToWithdraw)) {
+    sonAccount.withdraw(amountToWithdraw);
+    saldoFiglio();
+  } else {
+    alert("Inserisci un valore valido");
+  }
 }
+
 function prelievoMadre(): void {
   const amountToWithdraw = parseInt(withdrawMum.value);
-  motherAccount.withdraw(amountToWithdraw);
-  motherAccount.calculateInterest();
-  saldoMadre();
+  if (!isNaN(amountToWithdraw)) {
+    motherAccount.withdraw(amountToWithdraw);
+    motherAccount.calculateInterest();
+    saldoMadre();
+  } else {
+    alert("Inserisci un valore valido");
+  }
 }
 
 function depositoFiglio(): void {
   const amountToDeposit = parseInt(depositSon.value);
-  sonAccount.deposit(amountToDeposit);
-  saldoFiglio();
+  if (!isNaN(amountToDeposit)) {
+    sonAccount.deposit(amountToDeposit);
+    saldoFiglio();
+  } else {
+    alert("Inserisci un valore valido");
+  }
 }
+
 function depositoMadre(): void {
   const amountToDeposit = parseInt(depositMum.value);
-  motherAccount.deposit(amountToDeposit);
-  motherAccount.calculateInterest();
-  saldoMadre();
+  if (!isNaN(amountToDeposit)) {
+    motherAccount.deposit(amountToDeposit);
+    motherAccount.calculateInterest();
+    saldoMadre();
+  } else {
+    alert("Inserisci un valore valido");
+  }
 }
 
 saldoFiglio();
